@@ -8,6 +8,7 @@ const todoSchema = new Schema({
     },
     done: {
         type: Boolean,
+        default: false
     },
 });
 const todoModel = mongoose.model('todo', todoSchema);

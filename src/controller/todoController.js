@@ -3,7 +3,11 @@ import todoModel from "../model/todoModel";
 //type in the functions to be exported to routes
 
 const defaultRoute = (req, res) => {
-    res.render('index', {});
+    todoModel.find({}, (err, data) => {     //find{} : find all objects
+        if (err)
+            res.send(err);
+        res.render('index', { todos: data });
+    })
 }
 
 const addNew = (req, res) => {

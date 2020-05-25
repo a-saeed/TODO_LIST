@@ -8,6 +8,6 @@ const router = express.Router();
 router.route("/")
     .get(defaultRoute);
 
-router.route("/todos")
+router.route("/newItem")
     .post(addNew);
 module.exports = router;
