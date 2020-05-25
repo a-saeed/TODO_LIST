@@ -15,7 +15,8 @@ const mustacheExpressInstance = mustacheExpress();
 mustacheExpressInstance.cache = null;
 app.engine('mustache', mustacheExpressInstance);
 app.set("view engine", "mustache");
-app.set('views', __dirname + '/views');
+app.set('views', './views');
+
 // Express Parser setup
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -31,7 +32,7 @@ mongoose.connect(db, {
 app.use(prefix, todoRoutes);
 
 // Running server
-const listen = app.listen(port, () => {
+app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
 

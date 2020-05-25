@@ -1,17 +1,13 @@
 import express from "express";
-/*import {
-    functions you created in controller
-} from "../controller/todoController";*/
+import {
+    defaultRoute, addNew
+} from "../controller/todoController";
 
 const router = express.Router();
 
-/*
-router.route("/workspace/user/:id")
-    .get(function from controller);*/
-
 router.route("/")
-    .get((req, res) => {
-        res.json({ "msg": "hello" });
-    })
+    .get(defaultRoute);
 
+router.route("/todos")
+    .post(addNew);
 module.exports = router;
