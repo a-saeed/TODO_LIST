@@ -11,6 +11,6 @@ module.exports = {
         version: [1],
     },
     database: {
-        url: process.env.DB_URL || "mongodb+srv://rankup:rank1998@cluster0-9enme.mongodb.net/RUWorkSpaces?retryWrites=true&w=majority",
-    },
+        url: process.env.DB_URL || "mongodb://localhost:27017/todo_app_db",
+    }
 };

@@ -7,7 +7,12 @@ const defaultRoute = (req, res) => {
 }
 
 const addNew = (req, res) => {
-    res.json(req.body);
+    const newTodo = new todoModel(req.body);
+    newTodo.save((err, newTodo) => {
+        if (err)
+            res.send(err);
+        res.redirect("/api/v1/");
+    });
 }
 
 module.exports = {
