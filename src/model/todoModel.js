@@ -2,31 +2,15 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-//create your own schema here dfs
-/**
- * const todoSchema = new Schema({
-    name:{
+const todoSchema = new Schema({
+    description: {
         type: String,
         required: true
     },
-    ownerID:{
-        type: Number,
+    done: {
+        type: Boolean,
         required: true
     },
-    numOfJobs:{
-        type: Number,
-        default: 0
-    },
-    users:{
-        type: Array,
-        required: true
-    },
-    createdDate:{
-        type:Date,
-        default: Date.now
-    }
 });
- */
-//const todoModel = mongoose.model('todo', todoSchema);
-
-//module.exports = todoModel;
+const todoModel = mongoose.model('todo', todoSchema);
+module.exports = todoModel;
