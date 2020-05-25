@@ -12,9 +12,7 @@ const defaultRoute = (req, res) => {
 
 const addNew = (req, res) => {
     const newTodo = new todoModel(req.body);
-    newTodo.save((err, newTodo) => {
-        if (err)
-            res.send(err);
+    newTodo.save(() => {
         res.redirect("/api/v1/");
     });
 }
