@@ -12,12 +12,16 @@
         <button type="submit">Add</button>
     </form>
 
-    <ul>
-        {{#todos}}
-            <li>
-                {{description}} - {{done}}
-            </li>
-        {{/todos}}
-    </ul>
+
+ <ul>
+     {{#todos}}
+        <li>
+            <form action="/api/v1/{{_id}}/completed" method="POST">
+                {{description}} - {{done}} <button type="submit">Done</button>
+            </form>
+            <br>
+        </li>
+    {{/todos}}
+</ul>
 </body>
 </html>

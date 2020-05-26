@@ -1,6 +1,6 @@
 import express from "express";
 import {
-    defaultRoute, addNew
+    defaultRoute, addNew, markDone
 } from "../controller/todoController";
 
 const router = express.Router();
@@ -10,4 +10,7 @@ router.route("/")
 
 router.route("/newItem")
     .post(addNew);
+
+router.route("/:id/completed")
+    .post(markDone);
 module.exports = router;
