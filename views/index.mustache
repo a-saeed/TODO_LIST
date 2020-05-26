@@ -19,6 +19,11 @@
             <form action="/api/v1/{{_id}}/completed" method="POST">
                 {{description}} - {{done}} <button type="submit">Done</button>
             </form>
+
+            <form action="/api/v1/{{_id}}/delete" method="POST">
+                 <button type="submit">Delete</button>
+            </form>
+
             <br>
         </li>
     {{/todos}}

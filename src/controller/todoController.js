@@ -33,7 +33,19 @@ const markDone = (req, res) => {
         });
 }
 
+const deleteTodo = (req, res) => {
+    const todoId = req.params.id;
+    todoModel.deleteOne({ _id: todoId })
+        .exec()
+        .then(() => {
+            res.redirect("/api/v1/");
+        })
+        .catch((err) => {
+            res.send(err)
+        })
+}
+
 module.exports = {
     //function name
-    defaultRoute, addNew, markDone
+    defaultRoute, addNew, markDone, deleteTodo
 };
