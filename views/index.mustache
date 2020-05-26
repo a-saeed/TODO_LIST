@@ -6,27 +6,44 @@
     <title>TODO</title>
 </head>
 <body>
-    <h1>stuff i need to do</h1>
+    <h1>TODO LIST!</h1>
     <form action="/api/v1/newitem" method="POST">
-        <input type="text" name = "description" >
+        <input type="text" name = "description" placeholder="what do you need to do?" >
         <button type="submit">Add</button>
     </form>
+
+    <h3>Your List Goes Down Here, Don't Go Down With It!</h3>
 
 
  <ul>
      {{#todos}}
         <li>
             <form action="/api/v1/{{_id}}/completed" method="POST">
-                {{description}} - {{done}} <button type="submit">Done</button>
+                {{description}} <button type="submit">Done</button>
+            </form>
+            <br>
+        </li>
+    {{/todos}}
+</ul>
+
+<br> <br> 
+
+<h3>Way To Go Kid! Things You've Done..</h3>
+
+
+<ul>
+    {{#doneTodos}} <!--to loop through a collection-->
+    <li>
+    <form action="/api/v1/{{_id}}/completed" method="POST">
+                {{description}} <button type="submit">Not Done Yet?</button>
             </form>
 
             <form action="/api/v1/{{_id}}/delete" method="POST">
                  <button type="submit">Delete</button>
             </form>
-
             <br>
-        </li>
-    {{/todos}}
+    </li>
+    {{/doneTodos}}
 </ul>
 </body>
 </html>

@@ -3,11 +3,18 @@ import todoModel from "../model/todoModel";
 //type in the functions to be exported to routes
 
 const defaultRoute = (req, res) => {
-    todoModel.find({}, (err, data) => {     //find{} : find all objects
-        if (err)
-            res.send(err);
-        res.render('index', { todos: data });
+    todoModel.find({}).then((results) => { //results is all records in the collection. in other words, all todos.
+
+        const unfinishedtodos = results.filter((todo) => { //filter() takes a fn that in turn takes an item from the collection we're filtering on
+            return !todo.done;
+        })
+
+        const finishedTodos = results.filter((todo) => {
+            return todo.done;
+        })
+        res.render('index', { todos: unfinishedtodos, doneTodos: finishedTodos });
     })
+
 }
 
 const addNew = (req, res) => {
